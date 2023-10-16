@@ -11,6 +11,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
+    id "com.google.cloud.artifactregistry.gradle-plugin" version "2.2.0"
 }
 
 compileJava.options.encoding = "UTF-8"
@@ -19,6 +20,9 @@ compileTestJava.options.encoding = "UTF-8"
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    maven {
+        url "artifactregistry://us-central1-maven.pkg.dev/enigma-382911/maven"
+    }
 }
 
 java {
@@ -29,19 +33,14 @@ java {
 publishing {
     repositories {
         maven {
-            name = "OSSRH"
-            url = 'https://maven.pkg.github.com/formancehq/formance-sdk-java'
-            credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
-          }
+            url "artifactregistry://us-central1-maven.pkg.dev/enigma-382911/maven"
         }
     }
     publications {
         maven(MavenPublication) {
             groupId = 'com.formance'
-            artifactId = 'formance-sdk'
-            version = 'v1.0.20230915'
+            artifactId = 'formance-sdk-enigma'
+            version = 'v1.0.20231013'
 
             from components.java
 
@@ -76,9 +75,7 @@ publishing {
 }
 
 signing {
-    def signingKey = findProperty("signingKey")
-    def signingPassphrase = findProperty("signingPassphrase")
-    useInMemoryPgpKeys(signingKey, signingPassphrase)
+    useGpgCmd()
     sign publishing.publications.maven
 }
 

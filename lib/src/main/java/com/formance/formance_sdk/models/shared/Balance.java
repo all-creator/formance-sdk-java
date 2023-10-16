@@ -4,13 +4,15 @@
 
 package com.formance.formance_sdk.models.shared;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.formance.formance_sdk.utils.DateTimeDeserializer;
 import com.formance.formance_sdk.utils.DateTimeSerializer;
+
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 
 public class Balance {
@@ -35,9 +37,9 @@ public class Balance {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("priority")
-    public Long priority;
+    public BigInteger priority;
 
-    public Balance withPriority(Long priority) {
+    public Balance withPriority(BigInteger priority) {
         this.priority = priority;
         return this;
     }

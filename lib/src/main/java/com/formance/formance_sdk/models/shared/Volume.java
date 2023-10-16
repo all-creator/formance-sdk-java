@@ -8,33 +8,35 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+
 public class Volume {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("balance")
-    public Long balance;
+    public BigInteger balance;
 
-    public Volume withBalance(Long balance) {
+    public Volume withBalance(BigInteger balance) {
         this.balance = balance;
         return this;
     }
     
     @JsonProperty("input")
-    public Long input;
+    public BigInteger input;
 
-    public Volume withInput(Long input) {
+    public Volume withInput(BigInteger input) {
         this.input = input;
         return this;
     }
     
     @JsonProperty("output")
-    public Long output;
+    public BigInteger output;
 
-    public Volume withOutput(Long output) {
+    public Volume withOutput(BigInteger output) {
         this.output = output;
         return this;
     }
     
-    public Volume(@JsonProperty("input") Long input, @JsonProperty("output") Long output) {
+    public Volume(@JsonProperty("input") BigInteger input, @JsonProperty("output") BigInteger output) {
         this.input = input;
         this.output = output;
   }
