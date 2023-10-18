@@ -11,13 +11,15 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.formance.formance_sdk.utils.DateTimeDeserializer;
 import com.formance.formance_sdk.utils.DateTimeSerializer;
+
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 
 public class BalanceWithAssets {
     @JsonProperty("assets")
-    public java.util.Map<String, Long> assets;
+    public java.util.Map<String, BigInteger> assets;
 
-    public BalanceWithAssets withAssets(java.util.Map<String, Long> assets) {
+    public BalanceWithAssets withAssets(java.util.Map<String, BigInteger> assets) {
         this.assets = assets;
         return this;
     }
@@ -50,7 +52,7 @@ public class BalanceWithAssets {
         return this;
     }
     
-    public BalanceWithAssets(@JsonProperty("assets") java.util.Map<String, Long> assets, @JsonProperty("name") String name) {
+    public BalanceWithAssets(@JsonProperty("assets") java.util.Map<String, BigInteger> assets, @JsonProperty("name") String name) {
         this.assets = assets;
         this.name = name;
   }

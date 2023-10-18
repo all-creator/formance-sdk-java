@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.formance.formance_sdk.utils.DateTimeDeserializer;
 import com.formance.formance_sdk.utils.DateTimeSerializer;
+
+import java.math.BigInteger;
 import java.time.OffsetDateTime;
 
 public class CreateBalanceRequest {
@@ -35,9 +37,9 @@ public class CreateBalanceRequest {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("priority")
-    public Long priority;
+    public BigInteger priority;
 
-    public CreateBalanceRequest withPriority(Long priority) {
+    public CreateBalanceRequest withPriority(BigInteger priority) {
         this.priority = priority;
         return this;
     }

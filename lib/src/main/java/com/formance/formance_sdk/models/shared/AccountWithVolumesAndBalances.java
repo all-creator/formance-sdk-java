@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+
 public class AccountWithVolumesAndBalances {
     @JsonProperty("address")
     public String address;
@@ -19,9 +21,9 @@ public class AccountWithVolumesAndBalances {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("balances")
-    public java.util.Map<String, Long> balances;
+    public java.util.Map<String, BigInteger> balances;
 
-    public AccountWithVolumesAndBalances withBalances(java.util.Map<String, Long> balances) {
+    public AccountWithVolumesAndBalances withBalances(java.util.Map<String, BigInteger> balances) {
         this.balances = balances;
         return this;
     }
@@ -46,9 +48,9 @@ public class AccountWithVolumesAndBalances {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("volumes")
-    public java.util.Map<String, java.util.Map<String, Long>> volumes;
+    public java.util.Map<String, java.util.Map<String, BigInteger>> volumes;
 
-    public AccountWithVolumesAndBalances withVolumes(java.util.Map<String, java.util.Map<String, Long>> volumes) {
+    public AccountWithVolumesAndBalances withVolumes(java.util.Map<String, java.util.Map<String, BigInteger>> volumes) {
         this.volumes = volumes;
         return this;
     }

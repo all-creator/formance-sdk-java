@@ -6,11 +6,13 @@ package com.formance.formance_sdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+
 public class WalletsPosting {
     @JsonProperty("amount")
-    public Long amount;
+    public BigInteger amount;
 
-    public WalletsPosting withAmount(Long amount) {
+    public WalletsPosting withAmount(BigInteger amount) {
         this.amount = amount;
         return this;
     }
@@ -39,7 +41,7 @@ public class WalletsPosting {
         return this;
     }
     
-    public WalletsPosting(@JsonProperty("amount") Long amount, @JsonProperty("asset") String asset, @JsonProperty("destination") String destination, @JsonProperty("source") String source) {
+    public WalletsPosting(@JsonProperty("amount") BigInteger amount, @JsonProperty("asset") String asset, @JsonProperty("destination") String destination, @JsonProperty("source") String source) {
         this.amount = amount;
         this.asset = asset;
         this.destination = destination;

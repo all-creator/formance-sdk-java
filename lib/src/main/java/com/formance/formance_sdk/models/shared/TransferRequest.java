@@ -8,11 +8,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+
 public class TransferRequest {
     @JsonProperty("amount")
-    public Long amount;
+    public BigInteger amount;
 
-    public TransferRequest withAmount(Long amount) {
+    public TransferRequest withAmount(BigInteger amount) {
         this.amount = amount;
         return this;
     }
@@ -42,7 +44,7 @@ public class TransferRequest {
         return this;
     }
     
-    public TransferRequest(@JsonProperty("amount") Long amount, @JsonProperty("asset") String asset, @JsonProperty("destination") String destination) {
+    public TransferRequest(@JsonProperty("amount") BigInteger amount, @JsonProperty("asset") String asset, @JsonProperty("destination") String destination) {
         this.amount = amount;
         this.asset = asset;
         this.destination = destination;

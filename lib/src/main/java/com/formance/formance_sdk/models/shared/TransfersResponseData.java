@@ -8,12 +8,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
+
 public class TransfersResponseData {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amount")
-    public Long amount;
+    public BigInteger amount;
 
-    public TransfersResponseData withAmount(Long amount) {
+    public TransfersResponseData withAmount(BigInteger amount) {
         this.amount = amount;
         return this;
     }
