@@ -6,16 +6,14 @@ package com.formance.formance_sdk.models.shared;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.math.BigInteger;
-
 public class Monetary {
     /**
      * The amount of the monetary value.
      */
     @JsonProperty("amount")
-    public BigInteger amount;
+    public String amount;
 
-    public Monetary withAmount(BigInteger amount) {
+    public Monetary withAmount(String amount) {
         this.amount = amount;
         return this;
     }
@@ -31,7 +29,7 @@ public class Monetary {
         return this;
     }
     
-    public Monetary(@JsonProperty("amount") BigInteger amount, @JsonProperty("asset") String asset) {
+    public Monetary(@JsonProperty("amount") String amount, @JsonProperty("asset") String asset) {
         this.amount = amount;
         this.asset = asset;
   }
